@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-errors.component.css'],
 })
 export class TestErrorsComponent implements OnInit {
+  validationErrors: string[] = [];
   baseUrl = 'https://localhost:5001/api/';
 
   constructor(private http: HttpClient) {}
@@ -64,6 +65,7 @@ export class TestErrorsComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        this.validationErrors = error;
       }
     );
   }
